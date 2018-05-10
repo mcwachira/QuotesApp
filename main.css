@@ -10,6 +10,13 @@ body, html{
 }
 .card  {
     margin-top: 15%;
- 
+    border-width: 5px;
+    border-color:rgb(216, 198, 198);
+  
 
+}
+
+#bt {
+    margin-left: 30%;
+    pa
 }
