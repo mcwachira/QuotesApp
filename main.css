@@ -17,6 +17,16 @@ body, html{
 }
 
 #bt {
-    margin-left: 30%;
-    pa
+    margin-left: 10%;
+    
+}
+
+#quote  {
+    margin-left: 70%;
+    margin-bottom: 10px;
+   
+}
+#qt {
+    margin-right: 100%;
+    margin-bottom: 10px;
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<title>Quotes App </title>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,34 +18,70 @@
 
         <div class="card">
             <div class="card-header">
-                Quote
-            </div>
-            <div class="card-body">
+            <h2> Quotes </h2>
+        </div>
+            <div id="output" class="card-body"> 
                 <blockquote class="blockquote mb-0">
-                    <p id="change" class="card-text">God bless thee; and put meekness in thy mind, love, charity, obedience, and true duty!</p>
-                    <footer id="Author" class="blockquote-footer"> William Shakespeare </footer>
-                </blockquote>
+                        <i id="qt" class="fa fa-quote-right"></i>
+                    <p id="Quote" class="card-text"> Hello, Simpson. I'm riding the bus today becuase Mother hid my car keys to punish me for talking to a woman on the phone. She was right to do it.</p>
+                    <footer id="Author" class="blockquote-footer">Principal Skinner</footer>
+                </blockquote>;
+
+            </div>
+          
                
                 <div id="bt" class="row">
-                    <a target="_blank" id="tweet-share" href="https://twitter.com/intent/tweet?text=">
-                        <i class="fa fa-4x fa-twitter-square"> </i>
+                    <a target="_blank" id="tweet-share">
+                        <i class="fa fa-4x fa-twitter-square mr-5"> </i>
                     </a>
 
 
-                    <button type="button" id="bt" class="btn btn-outline-primary">Quote</button>
+                    <button id="quote" class="btn btn-outline-primary">Quote</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
+        document.getElementById('quote').addEventListener('click', getQuote);
+         
+        var  Quote ;
+        var  authors;
+        var url = 'https://thesimpsonsquoteapi.glitch.me/quotes';
+        function getQuote(){
+            fetch (url).then(function (res)    {
+              return res.json()
+              .then(function(data)  {
+               
 
+            var output  =  '';
+
+
+            data.forEach(function(post)    {
+                output  += `  
+                    <blockquote class="blockquote mb-0">
+                        <p id="Quote" class="card-text">${post.quote}</p>
+                        <footer id="Author" class="blockquote-footer"> ${post.character} </footer>
+                    </blockquote> `;
+            });
         
+           document.getElementById('output').innerHTML= output;
+        })
+    })
+};
+      
+            
+var tweetUrl = href="https://twitter.com/intent/tweet?text="+Quote
+
+document.getElementById('tweet-share').setAttribute('href',tweetUrl);
+           
       
     </script>
     
     <script src="jquery-3.2.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
-    <script src="script.js"></script>
+   
 </body>
 
 </html>
+
+
